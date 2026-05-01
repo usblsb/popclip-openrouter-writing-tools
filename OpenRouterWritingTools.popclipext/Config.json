@@ -10,8 +10,9 @@
     {
       "identifier": "apikey",
       "label": "OpenRouter API Key",
-      "type": "secret",
-      "description": "Get yours at https://openrouter.ai/keys (starts with sk-or-v1-...)"
+      "type": "string",
+      "defaultValue": "",
+      "description": "Get yours at https://openrouter.ai/keys (starts with sk-or-v1-...). Note: stored as plain string for now, will move to secret/Keychain in a later version."
     },
     {
       "identifier": "idioma_respuesta",
