@@ -26,55 +26,6 @@
       "type": "string",
       "defaultValue": "spanish",
       "description": "Destination language for the Translate task. Examples: spanish, english, german, french, italian, portuguese, japanese."
-    },
-    {
-      "identifier": "jl_corregir",
-      "label": "Show: Correct (typos & grammar)",
-      "type": "boolean",
-      "defaultValue": true,
-      "icon": "symbol:checkmark.seal.fill"
-    },
-    {
-      "identifier": "jl_traducir",
-      "label": "Show: Translate",
-      "type": "boolean",
-      "defaultValue": true,
-      "icon": "symbol:globe"
-    },
-    {
-      "identifier": "jl_resumir",
-      "label": "Show: Summarize",
-      "type": "boolean",
-      "defaultValue": true,
-      "icon": "symbol:text.alignleft"
-    },
-    {
-      "identifier": "jl_email",
-      "label": "Show: Improve email/message",
-      "type": "boolean",
-      "defaultValue": true,
-      "icon": "symbol:envelope.fill"
-    },
-    {
-      "identifier": "jl_contenido",
-      "label": "Show: Improve content (merge fragments)",
-      "type": "boolean",
-      "defaultValue": true,
-      "icon": "symbol:doc.text.fill"
-    },
-    {
-      "identifier": "jl_html",
-      "label": "Show: Format as HTML",
-      "type": "boolean",
-      "defaultValue": true,
-      "icon": "symbol:chevron.left.forwardslash.chevron.right"
-    },
-    {
-      "identifier": "jl_md",
-      "label": "Show: Format as Markdown",
-      "type": "boolean",
-      "defaultValue": true,
-      "icon": "symbol:doc.richtext.fill"
     }
   ],
 
@@ -85,7 +36,7 @@
       "interpreter": "bash",
       "shell script": "JL_TASK=corregir exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
       "after": "paste-result",
-      "requirements": ["text", "option-jl_corregir=1"]
+      "requirements": ["text"]
     },
     {
       "title": "Translate",
@@ -93,7 +44,7 @@
       "interpreter": "bash",
       "shell script": "JL_TASK=traducir exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
       "after": "paste-result",
-      "requirements": ["text", "option-jl_traducir=1"]
+      "requirements": ["text"]
     },
     {
       "title": "Summarize",
@@ -101,7 +52,7 @@
       "interpreter": "bash",
       "shell script": "JL_TASK=resumir exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
       "after": "paste-result",
-      "requirements": ["text", "option-jl_resumir=1"]
+      "requirements": ["text"]
     },
     {
       "title": "Improve email/message",
@@ -109,7 +60,7 @@
       "interpreter": "bash",
       "shell script": "JL_TASK=email exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
       "after": "paste-result",
-      "requirements": ["text", "option-jl_email=1"]
+      "requirements": ["text"]
     },
     {
       "title": "Improve content",
@@ -117,7 +68,7 @@
       "interpreter": "bash",
       "shell script": "JL_TASK=contenido exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
       "after": "paste-result",
-      "requirements": ["text", "option-jl_contenido=1"]
+      "requirements": ["text"]
     },
     {
       "title": "Format HTML",
@@ -125,7 +76,7 @@
       "interpreter": "bash",
       "shell script": "JL_TASK=html exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
       "after": "paste-result",
-      "requirements": ["text", "option-jl_html=1"]
+      "requirements": ["text"]
     },
     {
       "title": "Format Markdown",
@@ -133,7 +84,7 @@
       "interpreter": "bash",
       "shell script": "JL_TASK=md exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
       "after": "paste-result",
-      "requirements": ["text", "option-jl_md=1"]
+      "requirements": ["text"]
     }
   ]
 }
