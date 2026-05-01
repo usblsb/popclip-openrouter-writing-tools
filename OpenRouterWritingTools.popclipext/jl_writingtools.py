@@ -3,7 +3,11 @@
 # OpenRouter Writing Tools - PopClip extension
 # 7 AI writing tasks via OpenRouter (OpenAI + Gemini models).
 #
-# Reads:   POPCLIP_TEXT, POPCLIP_OPTION_*, JL_TASK
+# Usage:   python3 jl_writingtools.py <task>
+#          where <task> is one of: corregir, traducir, resumir, email,
+#          contenido, html, md
+#
+# Reads:   POPCLIP_TEXT, POPCLIP_OPTION_*, sys.argv[1]
 # Writes:  transformed text to stdout (PopClip pastes it via after: paste-result)
 # Errors:  to stderr + exit 1 (PopClip shows a failure indicator)
 # ============================================================================
@@ -253,9 +257,11 @@ def call_openrouter(api_key, model, system_prompt, user_prompt, temperature, max
 # Main
 # ----------------------------------------------------------------------------
 def main():
-    task = (os.environ.get("JL_TASK") or "").strip()
+    if len(sys.argv) < 2:
+        fail(f"Usage: jl_writingtools.py <task>. Expected one of: {', '.join(TASKS)}")
+    task = sys.argv[1].strip()
     if task not in TASKS:
-        fail(f"Unknown JL_TASK '{task}'. Expected one of: {', '.join(TASKS)}")
+        fail(f"Unknown task '{task}'. Expected one of: {', '.join(TASKS)}")
 
     api_key = (os.environ.get("POPCLIP_OPTION_APIKEY") or "").strip()
     if not api_key:

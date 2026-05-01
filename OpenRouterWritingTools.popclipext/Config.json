@@ -2,7 +2,7 @@
   "name": "OpenRouter Writing Tools",
   "identifier": "com.jl.openrouter.writingtools",
   "description": "7 AI writing actions powered by OpenRouter (OpenAI + Gemini): correct, translate, summarize, improve email, improve content, format HTML, format Markdown.",
-  "icon": "symbol:apple.intelligence",
+  "icon": "symbol:wand.and.stars",
   "popclipVersion": 4069,
   "entitlements": ["network"],
 
@@ -35,7 +35,7 @@
       "title": "Correct",
       "icon": "symbol:checkmark.seal.fill",
       "interpreter": "bash",
-      "shell script": "JL_TASK=corregir exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "shell script": "python3 jl_writingtools.py corregir",
       "after": "paste-result",
       "requirements": ["text"]
     },
@@ -43,7 +43,7 @@
       "title": "Translate",
       "icon": "symbol:globe",
       "interpreter": "bash",
-      "shell script": "JL_TASK=traducir exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "shell script": "python3 jl_writingtools.py traducir",
       "after": "paste-result",
       "requirements": ["text"]
     },
@@ -51,7 +51,7 @@
       "title": "Summarize",
       "icon": "symbol:text.alignleft",
       "interpreter": "bash",
-      "shell script": "JL_TASK=resumir exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "shell script": "python3 jl_writingtools.py resumir",
       "after": "paste-result",
       "requirements": ["text"]
     },
@@ -59,7 +59,7 @@
       "title": "Improve email/message",
       "icon": "symbol:envelope.fill",
       "interpreter": "bash",
-      "shell script": "JL_TASK=email exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "shell script": "python3 jl_writingtools.py email",
       "after": "paste-result",
       "requirements": ["text"]
     },
@@ -67,7 +67,7 @@
       "title": "Improve content",
       "icon": "symbol:doc.text.fill",
       "interpreter": "bash",
-      "shell script": "JL_TASK=contenido exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "shell script": "python3 jl_writingtools.py contenido",
       "after": "paste-result",
       "requirements": ["text"]
     },
@@ -75,7 +75,7 @@
       "title": "Format HTML",
       "icon": "symbol:chevron.left.forwardslash.chevron.right",
       "interpreter": "bash",
-      "shell script": "JL_TASK=html exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "shell script": "python3 jl_writingtools.py html",
       "after": "paste-result",
       "requirements": ["text"]
     },
@@ -83,7 +83,7 @@
       "title": "Format Markdown",
       "icon": "symbol:doc.richtext.fill",
       "interpreter": "bash",
-      "shell script": "JL_TASK=md exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "shell script": "python3 jl_writingtools.py md",
       "after": "paste-result",
       "requirements": ["text"]
     }
