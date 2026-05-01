@@ -81,7 +81,7 @@
     },
     {
       "title": "Format Markdown",
-      "icon": "symbol:doc.richtext.fill",
+      "icon": "symbol:m.square.fill",
       "interpreter": "bash",
       "shell script": "python3 jl_writingtools.py md",
       "after": "paste-result",
