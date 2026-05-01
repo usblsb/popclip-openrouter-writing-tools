@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Build / packaged extension
+*.popclipextz
+build/
+dist/
+
+# Local secrets (just in case)
+.env
+.env.local
+*.key

@@ -1,0 +1,139 @@
+{
+  "name": "OpenRouter Writing Tools",
+  "identifier": "com.jl.openrouter.writingtools",
+  "description": "7 AI writing actions powered by OpenRouter (OpenAI + Gemini): correct, translate, summarize, improve email, improve content, format HTML, format Markdown.",
+  "icon": "symbol:apple.intelligence",
+  "popclipVersion": 4069,
+  "entitlements": ["network"],
+
+  "options": [
+    {
+      "identifier": "apikey",
+      "label": "OpenRouter API Key",
+      "type": "secret",
+      "description": "Get yours at https://openrouter.ai/keys (starts with sk-or-v1-...)"
+    },
+    {
+      "identifier": "idioma_respuesta",
+      "label": "Response language (most tasks)",
+      "type": "string",
+      "defaultValue": "auto",
+      "description": "Language used for tasks #1, #3, #4, #5, #6, #7. Use 'auto' to keep the input language. Or write 'spanish', 'english', 'german'..."
+    },
+    {
+      "identifier": "idioma_traducir",
+      "label": "Target language (Translate task only)",
+      "type": "string",
+      "defaultValue": "spanish",
+      "description": "Destination language for the Translate task. Examples: spanish, english, german, french, italian, portuguese, japanese."
+    },
+    {
+      "identifier": "jl_corregir",
+      "label": "Show: Correct (typos & grammar)",
+      "type": "boolean",
+      "defaultValue": true,
+      "icon": "symbol:checkmark.seal.fill"
+    },
+    {
+      "identifier": "jl_traducir",
+      "label": "Show: Translate",
+      "type": "boolean",
+      "defaultValue": true,
+      "icon": "symbol:globe"
+    },
+    {
+      "identifier": "jl_resumir",
+      "label": "Show: Summarize",
+      "type": "boolean",
+      "defaultValue": true,
+      "icon": "symbol:text.alignleft"
+    },
+    {
+      "identifier": "jl_email",
+      "label": "Show: Improve email/message",
+      "type": "boolean",
+      "defaultValue": true,
+      "icon": "symbol:envelope.fill"
+    },
+    {
+      "identifier": "jl_contenido",
+      "label": "Show: Improve content (merge fragments)",
+      "type": "boolean",
+      "defaultValue": true,
+      "icon": "symbol:doc.text.fill"
+    },
+    {
+      "identifier": "jl_html",
+      "label": "Show: Format as HTML",
+      "type": "boolean",
+      "defaultValue": true,
+      "icon": "symbol:chevron.left.forwardslash.chevron.right"
+    },
+    {
+      "identifier": "jl_md",
+      "label": "Show: Format as Markdown",
+      "type": "boolean",
+      "defaultValue": true,
+      "icon": "symbol:doc.richtext.fill"
+    }
+  ],
+
+  "actions": [
+    {
+      "title": "Correct",
+      "icon": "symbol:checkmark.seal.fill",
+      "interpreter": "bash",
+      "shell script": "JL_TASK=corregir exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "after": "paste-result",
+      "requirements": ["text", "option-jl_corregir=1"]
+    },
+    {
+      "title": "Translate",
+      "icon": "symbol:globe",
+      "interpreter": "bash",
+      "shell script": "JL_TASK=traducir exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "after": "paste-result",
+      "requirements": ["text", "option-jl_traducir=1"]
+    },
+    {
+      "title": "Summarize",
+      "icon": "symbol:text.alignleft",
+      "interpreter": "bash",
+      "shell script": "JL_TASK=resumir exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "after": "paste-result",
+      "requirements": ["text", "option-jl_resumir=1"]
+    },
+    {
+      "title": "Improve email/message",
+      "icon": "symbol:envelope.fill",
+      "interpreter": "bash",
+      "shell script": "JL_TASK=email exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "after": "paste-result",
+      "requirements": ["text", "option-jl_email=1"]
+    },
+    {
+      "title": "Improve content",
+      "icon": "symbol:doc.text.fill",
+      "interpreter": "bash",
+      "shell script": "JL_TASK=contenido exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "after": "paste-result",
+      "requirements": ["text", "option-jl_contenido=1"]
+    },
+    {
+      "title": "Format HTML",
+      "icon": "symbol:chevron.left.forwardslash.chevron.right",
+      "interpreter": "bash",
+      "shell script": "JL_TASK=html exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "after": "paste-result",
+      "requirements": ["text", "option-jl_html=1"]
+    },
+    {
+      "title": "Format Markdown",
+      "icon": "symbol:doc.richtext.fill",
+      "interpreter": "bash",
+      "shell script": "JL_TASK=md exec /usr/bin/python3 \"$POPCLIP_BUNDLE_PATH/jl_writingtools.py\"",
+      "after": "paste-result",
+      "requirements": ["text", "option-jl_md=1"]
+    }
+  ]
+}
