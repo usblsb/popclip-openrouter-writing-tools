@@ -25,8 +25,8 @@
       "identifier": "idioma_traducir",
       "label": "Target language (Translate task only)",
       "type": "string",
-      "defaultValue": "spanish",
-      "description": "Destination language for the Translate task. Examples: spanish, english, german, french, italian, portuguese, japanese."
+      "defaultValue": "auto",
+      "description": "Destination language for the Translate task. Use 'auto' to swap between Spanish and English (Spanish input -> English; English input -> Spanish; any other -> English). Or write 'spanish', 'english', 'german', 'french', 'italian', 'portuguese', 'japanese', etc. to force a specific target."
     }
   ],
 

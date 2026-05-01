@@ -197,11 +197,21 @@ def fail(msg, code=1):
 def build_user_prompt(task, text, idioma_respuesta, idioma_traducir):
     """Wrap the selected text with task-specific instructions."""
     if task == "traducir":
-        return (
-            f"Translate the following text into {idioma_traducir}. "
-            f"Return only the translation, nothing else.\n\n"
-            f"---\n{text}\n---"
-        )
+        target = (idioma_traducir or "auto").strip().lower()
+        if target == "auto":
+            instruction = (
+                "Detect the language of the text below and translate it as follows:\n"
+                "- If the text is in Spanish, translate it to English.\n"
+                "- If the text is in English, translate it to Spanish.\n"
+                "- For any other source language, translate it to English.\n"
+                "Return only the translation, with no explanation, no language tag, no quotes."
+            )
+        else:
+            instruction = (
+                f"Translate the following text into {idioma_traducir}. "
+                f"Return only the translation, with no explanation."
+            )
+        return f"{instruction}\n\n---\n{text}\n---"
 
     # All other tasks: respect language preference
     if idioma_respuesta and idioma_respuesta.lower() != "auto":
